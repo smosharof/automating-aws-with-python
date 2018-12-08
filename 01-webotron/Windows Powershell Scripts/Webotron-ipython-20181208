@@ -1,0 +1,210 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\mshamim> cd ~/code/automating-aws-with-python/
+PS C:\Users\mshamim\code\automating-aws-with-python> mkdir 01-webotron
+mkdir : An item with the specified name
+C:\Users\mshamim\code\automating-aws-with-python\01-webotron already
+exists.
+At line:1 char:1
++ mkdir 01-webotron
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (C:\Users\mshami...hon\01
+   -webotron:String) [New-Item], IOException
+    + FullyQualifiedErrorId : DirectoryExist,Microsoft.PowerShell.Comma
+   nds.NewItemCommand
+
+PS C:\Users\mshamim\code\automating-aws-with-python> mkdir 01-webotron
+
+
+    Directory: C:\Users\mshamim\code\automating-aws-with-python
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        12/8/2018  11:58 AM                01-webotron
+
+
+PS C:\Users\mshamim\code\automating-aws-with-python> cd 01-webotron
+PS C:\Users\mshamim\code\automating-aws-with-python\01-webotron> ls
+PS C:\Users\mshamim\code\automating-aws-with-python\01-webotron> pipenv --three
+Creating a virtualenv for this project…
+Pipfile: C:\Users\mshamim\code\automating-aws-with-python\01-webotron\Pipfile
+Using C:/Python37/python.exe (3.7.1) to create virtualenv…
+[=== ] Creating virtual environment...Using base prefix 'C:\\Python37'
+New python executable in C:\Users\mshamim\.virtualenvs\01-webotron-ChnaRGiC\Scripts\python.exe
+Installing setuptools, pip, wheel...
+done.
+Running virtualenv with interpreter C:/Python37/python.exe
+
+Successfully created virtual environment!
+Virtualenv location: C:\Users\mshamim\.virtualenvs\01-webotron-ChnaRGiC
+Creating a Pipfile for this project…
+PS C:\Users\mshamim\code\automating-aws-with-python\01-webotron> ls
+
+
+    Directory:
+    C:\Users\mshamim\code\automating-aws-with-python\01-webotron
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        12/8/2018  11:59 AM            138 Pipfile
+
+
+PS C:\Users\mshamim\code\automating-aws-with-python\01-webotron> cat pipfile
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+
+[requires]
+python_version = "3.7"
+PS C:\Users\mshamim\code\automating-aws-with-python\01-webotron> pipenv install boto3
+Installing boto3…
+Adding boto3 to Pipfile's [packages]…
+Installation Succeeded
+Pipfile.lock not found, creating…
+Locking [dev-packages] dependencies…
+Locking [packages] dependencies…
+Success!
+Updated Pipfile.lock (8382f5)!
+Installing dependencies from Pipfile.lock (8382f5)…
+  ================================ 8/8 - 00:00:05
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+PS C:\Users\mshamim\code\automating-aws-with-python\01-webotron> pipenv install -d ipython
+Installing ipython…
+Adding ipython to Pipfile's [dev-packages]…
+Installation Succeeded
+Pipfile.lock (5a81b5) out of date, updating to (8382f5)…
+Locking [dev-packages] dependencies…
+Success!
+Locking [packages] dependencies…
+Success!
+Updated Pipfile.lock (5a81b5)!
+Installing dependencies from Pipfile.lock (5a81b5)…
+  ================================ 20/20 - 00:00:09
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+PS C:\Users\mshamim\code\automating-aws-with-python\01-webotron> pipenv run ipython
+c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\IPython\core\history.py:226: UserWarning: IPython History requires SQLite, your history will not be saved
+  warn("IPython History requires SQLite, your history will not be saved")
+Python 3.7.1 (v3.7.1:260ec2c36a, Oct 20 2018, 14:57:15) [MSC v.1915 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.2.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: import boto3
+
+In [2]: cat ~/.aws/config
+  File "<ipython-input-2-9948312be653>", line 1
+    cat ~/.aws/config
+        ^
+SyntaxError: invalid syntax
+
+
+
+Unhandled exception in event loop:
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\eventloop\win32.py", line 103, in _run_task
+    t()
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\eventloop\context.py", line 115, in new_func
+    return func(*a, **kw)
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\application\application.py", line 556, in read_from_input
+    self.key_processor.process_keys()
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\key_binding\key_processor.py", line 273, in process_keys
+    self._process_coroutine.send(key_press)
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\key_binding\key_processor.py", line 180, in _process
+    self._call_handler(matches[-1], key_sequence=buffer[:])
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\key_binding\key_processor.py", line 323, in _call_handler
+    handler.call(event)
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\key_binding\key_bindings.py", line 78, in call
+    return self.handler(event)
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\IPython\terminal\shortcuts.py", line 244, in win_paste
+    text = tkinter_clipboard_get()
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\IPython\lib\clipboard.py", line 58, in tkinter_clipboard_get
+    root = Tk()
+  File "C:\Python37\Lib\tkinter\__init__.py", line 2023, in __init__
+    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)
+
+Exception Can't find a usable init.tcl in the following directories:
+    {c:\users\mshamim\.virtualenvs\01-webotron-chnargic\tcl\tcl8.6}
+
+c:/users/mshamim/.virtualenvs/01-webotron-chnargic/tcl/tcl8.6/init.tcl: version conflict for package "Tcl": have 8.6.7, need exactly 8.6.8
+version conflict for package "Tcl": have 8.6.7, need exactly 8.6.8
+    while executing
+"package require -exact Tcl 8.6.8"
+    (file "c:/users/mshamim/.virtualenvs/01-webotron-chnargic/tcl/tcl8.6/init.tcl" line 19)
+    invoked from within
+"source c:/users/mshamim/.virtualenvs/01-webotron-chnargic/tcl/tcl8.6/init.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel #0 [list source $tclfile]"
+
+
+This probably means that Tcl wasn't installed properly.
+
+Press ENTER to continue...
+In [3]: import boto3
+
+In [4]: session = boto3.Session(profile_name='pythonAutomation')
+
+In [5]: s3 = session.resource('s3)
+  File "<ipython-input-5-b88af3bb51c0>", line 1
+    s3 = session.resource('s3)
+                              ^
+SyntaxError: EOL while scanning string literal
+
+
+
+Unhandled exception in event loop:
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\eventloop\win32.py", line 103, in _run_task
+    t()
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\eventloop\context.py", line 115, in new_func
+    return func(*a, **kw)
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\application\application.py", line 556, in read_from_input
+    self.key_processor.process_keys()
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\key_binding\key_processor.py", line 273, in process_keys
+    self._process_coroutine.send(key_press)
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\key_binding\key_processor.py", line 180, in _process
+    self._call_handler(matches[-1], key_sequence=buffer[:])
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\key_binding\key_processor.py", line 323, in _call_handler
+    handler.call(event)
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\prompt_toolkit\key_binding\key_bindings.py", line 78, in call
+    return self.handler(event)
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\IPython\terminal\shortcuts.py", line 244, in win_paste
+    text = tkinter_clipboard_get()
+  File "c:\users\mshamim\.virtualenvs\01-webotron-chnargic\lib\site-packages\IPython\lib\clipboard.py", line 58, in tkinter_clipboard_get
+    root = Tk()
+  File "C:\Python37\Lib\tkinter\__init__.py", line 2023, in __init__
+    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)
+
+Exception Can't find a usable init.tcl in the following directories:
+    {c:\users\mshamim\.virtualenvs\01-webotron-chnargic\tcl\tcl8.6}
+
+c:/users/mshamim/.virtualenvs/01-webotron-chnargic/tcl/tcl8.6/init.tcl: version conflict for package "Tcl": have 8.6.7, need exactly 8.6.8
+version conflict for package "Tcl": have 8.6.7, need exactly 8.6.8
+    while executing
+"package require -exact Tcl 8.6.8"
+    (file "c:/users/mshamim/.virtualenvs/01-webotron-chnargic/tcl/tcl8.6/init.tcl" line 19)
+    invoked from within
+"source c:/users/mshamim/.virtualenvs/01-webotron-chnargic/tcl/tcl8.6/init.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel #0 [list source $tclfile]"
+
+
+This probably means that Tcl wasn't installed properly.
+
+Press ENTER to continue...
+In [6]: s3 = session.resource ('s3')
+
+In [7]: for bucket in s3.buckets.all():
+   ...:     print(bucket)
+   ...:
+s3.Bucket(name='cf-templates-q8cebso30ds8-us-east-2')
+
+In [8]:

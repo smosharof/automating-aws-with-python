@@ -1,0 +1,54 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\mshamim> cat ~/.aws/config
+[default]
+output = json
+region = us-east-2
+[profile pythonAutomation]
+output = json
+region = us-east-2
+PS C:\Users\mshamim> aws s3 ls --profile pythonAutomation
+
+SSL validation failed for https://s3.us-east-2.amazonaws.com/ [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:726)
+PS C:\Users\mshamim> aws s3 ls --profile pythonAutomation --no verify
+usage: aws [options] <command> <subcommand> [<subcommand> ...] [parameters]
+To see help text, you can run:
+
+  aws help
+  aws <command> help
+  aws <command> <subcommand> help
+aws: error: ambiguous option: --no could match --no-verify-ssl, --no-sign-request, --no-paginate
+PS C:\Users\mshamim> aws s3 ls --profile pythonAutomation --no-verify-ssl
+C:\Program Files\Amazon\AWSCLI\.\urllib3\connectionpool.py:847: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+2018-11-08 16:17:29 cf-templates-q8cebso30ds8-us-east-2
+PS C:\Users\mshamim> aws s3 ls --profile pythonAutomation --no verify
+usage: aws [options] <command> <subcommand> [<subcommand> ...] [parameters]
+To see help text, you can run:
+
+  aws help
+  aws <command> help
+  aws <command> <subcommand> help
+aws: error: ambiguous option: --no could match --no-verify-ssl, --no-sign-request, --no-paginate
+PS C:\Users\mshamim> aws s3 ls --profile pythonAutomation --no-verify-ssl
+C:\Program Files\Amazon\AWSCLI\.\urllib3\connectionpool.py:847: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is stronglPS C:\Users\mshamim> ^C
+PS C:\Users\mshamim> aws s3 ls --profile pythonAutomation --no-verify-ssl
+C2018-12-08 12:49:46 859081656887-acg-webotron-bucket-01
+2018-11-08 16:17:29 cf-templates-q8cebso30ds8-us-east-2
+PS C:\Users\mshamim> aws s3 ls --profile pythonAutomation --no-verify-ssl
+C:\Program Files\Amazon\AWSCLI\.\urllib3\connectionpool.py:847: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+2018-12-08 12:49:46 859081656887-acg-webotron-bucket-01
+2018-11-08 16:17:29 cf-templates-q8cebso30ds8-us-east-2
+PS C:\Users\mshamim> aws s3 mb s3://859081656887-acg-webotron-bucket-02 --profile pyt
+honAutomation
+make_bucket failed: s3://859081656887-acg-webotron-bucket-02 SSL validation failed for https://859081656887-acg-webotron-bucket-02.s3.us-east-2.amazonaws.com/ [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:726)
+PS C:\Users\mshamim> aws s3 mb s3://859081656887-acg-webotron-bucket-02 --profile pyt
+honAutomation --no-verify-ssl
+C:\Program Files\Amazon\AWSCLI\.\urllib3\connectionpool.py:847: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+make_bucket: 859081656887-acg-webotron-bucket-02
+PS C:\Users\mshamim> aws s3 ls --profile pythonAutomation --no-verify-ssl
+C:\Program Files\Amazon\AWSCLI\.\urllib3\connectionpool.py:847: InsecureRequestWarning: Unverified HTTPS request is being made. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+2018-12-08 12:49:46 859081656887-acg-webotron-bucket-01
+2018-12-08 12:52:15 859081656887-acg-webotron-bucket-02
+2018-11-08 16:17:29 cf-templates-q8cebso30ds8-us-east-2
+PS C:\Users\mshamim>

@@ -5,7 +5,11 @@ Automating AWS with python.
 Here is a print statement:
 >>print ("Hello world")
 
-12/08:
+12/08 (session#1):
 - Created 3 buckets using (1) Console (2) AWSCLI and (3) boto3.
 - Also saved all scripts from boto3 and AWSCLI
 - Find out how to use Windows Powershell with tabs instead of separate windows
+
+12/08 (session#2):
+- List bucket
+- List contents of a bucket

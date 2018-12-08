@@ -1,0 +1,15 @@
+/******************	Must add --no-verify-ssl to all AWS CLI commands	********/
+
+quit				->	CTRL+D
+launch ipython in pipenv	->	pipenv run ipython	
+start a boto3 session		->	session = boto3.Session(profile_name=pythonAutomation) 
+check s3 content		->	aws s3 ls --profile pythonAutomation --no-verify-ssl
+create a bucket			->	
+aws s3 mb s3://859081656887-acg-webotron-bucket-02 --profile pythonAutomation --no-verify-ssl
+			859081656887-acg-webotron-bucket-03
+
+see ipython history		->	%history
+save iptyhon history		->	%save (to the project location)
+quit ipython			->	CTRL+D
+resume from last saved		->	pipenv run ipython -i ipythonsession.py
+launch pipenv			->	pipenv shell (will save type [pipenv run] every time)
